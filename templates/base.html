@@ -1,0 +1,27 @@
+<!-- base.html -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load staticfiles %}
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {% load render_bundle from webpack_loader %}
+    {% render_bundle 'css' %}
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="container">
+        <h1>{% block head %}{% endblock %}</h1>
+        {% block content %}{% endblock %}
+        <div id="react-app"></div>
+        {% render_bundle 'main' %}
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
