@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block head %}
+    <br/>
+    <br/>
+
+    <h1>Добавим проект</h1><br>
+    <form method="post" action="{% url 'scheduler:project' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Sign in</button>
+    </form>
+    {{ massage }}
+{% endblock %}
+

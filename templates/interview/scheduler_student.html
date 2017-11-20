@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load render_bundle from webpack_loader %}
+
+{% block content %}
+    <script>
+        var _url_get_reserve_slot = "{% url 'interview:get_reserve_slot' %}";
+    </script>
+    <div class="container-fluid" style="margin-top: 30px; margin-left: 150px">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="scheduler_student"></div>
+            </div>
+        </div>
+    </div>
+    {% render_bundle 'scheduler_student' 'js' %}
+{% endblock content %}
+

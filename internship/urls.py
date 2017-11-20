@@ -21,5 +21,6 @@ from login.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('login.urls')),
-    url(r'^', 'django.contrib.auth.views.login'),
+    url(r'^', include('launcher.urls')),
+    url(r'^', include('interview.urls')),
 ]

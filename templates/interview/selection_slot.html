@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load render_bundle from webpack_loader %}
+
+{% block content %}
+
+    <script>
+        var _teacher_id = "{{ teacher_id }}";
+        var _url_get_teacher_free_slots = "{% url 'interview:get_teacher_free_slots' %}";
+        var _url_change_event_to_reserve_slots = "{% url 'interview:change_event_to_reserve_slots' %}";
+        var _url_scheduler_student_base = "{% url 'interview:scheduler_student_base' %}";
+    </script>
+    <div class="container-fluid" style="margin-top: 30px; margin-left: 150px">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="select_slot"></div>
+            </div>
+        </div>
+    </div>
+    {% render_bundle 'selection_slot' 'js' %}
+{% endblock content %}
+

@@ -4,8 +4,39 @@
 {% load staticfiles %}
 {% block title %}Welcome to Django{% endblock %}
 {% block head %}
+    <div class="jumbotron">
+        <div class="container">
+            {% if not user.is_authenticated %}
+                <h1>Hello! Welcome to internship applications</h1>
+                <p>Please Sign in on this website</p>
+            {% else %}
+                {% if user.first_name %}
+                    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                {% else %}
+                    <h1>{{ user.username }}</h1>
+                {% endif %}
+                <p> Добро пожаловать</p>
+                {% if not user.is_staff %}
+                    <a class="btn btn-default" href="{% url 'scheduler:student' %}">Проект и информация</a>
+                    <a class="btn btn-default" href="{% url 'interview:scheduler_student' %}">Мое расписание</a>
+                {% else %}
+                    <h4>{{ user.username }} лучший учитель насвете</h4>
+                    <a class="btn btn-info" href="{% url 'scheduler:project' %}">Добавить проект</a>
+                    <a class="btn btn-default" href="{% url 'interview:calendar' %}">Твой кадендарь</a>
+                    <a class="btn btn-success" href="{% url 'scheduler:teacher' %}">Студенты</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
 {% block content %}
-    <h1> Welcome {{ user.username }} !!! </h1>
-    <button type="button" onclick="window.location.href='/logout/' ">Logout</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Ту просто какой-то текст. Можно использовать что хочешь</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

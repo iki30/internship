@@ -1,2 +1,4 @@
 Django==1.9.3
 django-webpack-loader==0.2.4
+django-crispy-forms==1.7.0
+django-enumfield==1.3b2

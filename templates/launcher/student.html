@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block head %}
+    <br/>
+    <br/>
+    <br/>
+    <form class="form-inline" action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form }}
+            {#            <select id="company" class="form-control">#}
+            {#                {% for project in projects %}#}
+            {#                    <option value={{ project.id }}>{{ project.title }} => {{ project.description }}</option>#}
+            {#                {% endfor %}#}
+            {#            </select>#}
+        </div>
+        <button type="submit" class="btn btn-success">submit</button>
+    </form>
+
+    <h1>Список ваших заявок:</h1><br>
+    <table class="table" >
+        <thead>
+        <tr>
+            <th>Mentor</th>
+            <th>Decription</th>
+            <th>Choose Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for application in applications %}
+            <tr>
+                <td>{{ application.project.mentor }}</td>
+                <td>{{ application.project.description }}</td>
+                {% if application.is_approve %}
+                    <td>
+                        <a href="{% url 'interview:selection_slot' application.project.mentor.id %}" class="btn btn-success">Выбрать время</a>
+{#                        <button type="button" value="{{ application.id }}" class="btn btn-success">Выбрать время</button>#}
+                    </td>
+                {% else %}
+                    <td>
+                        <button type="button" class="btn btn-danger" disabled="disabled">Выбрать время</button>
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script>
+      {#$('.btn').on('click', function (data) {#}
+      {#    ($(this).val());})#}
+    </script>
+{% endblock %}
+

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load render_bundle from webpack_loader %}
+
+{% block content %}
+    <div class="container-fluid" style="margin-top: 30px; margin-left: 150px">
+        <div class="row">
+            <div class="col-md-8">
+                <div id="calendar"
+                     data-url-get-appointment-slots="{% url 'interview:get_appointment_slots' %}"
+                     data-url-save-events-to-appointment-slots="{% url 'interview:save_events_to_appointment_slots' %}"
+                     data-url-delete-appointment-slot="{% url 'interview:delete_appointment_slot' %}"
+                     data-url-translate-calendar="{% url 'interview:translate_calendar' %}"
+                ></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var calendar = document.getElementById('calendar');
+    </script>
+    {% render_bundle 'scheduler' 'js' %}
+{% endblock content %}
+

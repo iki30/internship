@@ -3,11 +3,25 @@
 {% block title %}User Registration{% endblock %}
 {% block head %}User Registration{% endblock %}
 {% block content %}
-    <form method="post" action=".">{% csrf_token %}
-        <table border="0">
-            {{ form.as_table }}
-        </table>
-        <button type="submit" value="Register">Register</button>
-        <button type="button" onclick="window.location.href='/' ">Login</button>
-    </form>
+    <br/>
+    <br/>
+    <div class="container">
+        <form class="form-signin"  method="post" action=".">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">Please sign up</h2>
+            <label for="id_username">Username:</label>
+            <input id="id_username" max_length="30" name="username"type="text" required class="form-control"/>
+
+            <label for="id_email">Email address:</label>
+            <input id="id_email" max_length="30" name="email" type="text"required class="form-control"/>
+
+            <label for="id_password1">Password:</label>
+            <input id="id_password1" max_length="30" name="password1" type="password" required class="form-control"/>
+
+            <label for="id_password2">Password (again):</label>
+            <input id="id_password2" max_length="30" name="password2" type="password" required class="form-control"/>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign out</button>
+        </form>
+    </div>
 {% endblock %}

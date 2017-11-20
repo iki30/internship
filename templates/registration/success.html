@@ -1,11 +1,10 @@
 <!-- success.html -->
 {% extends "base.html" %}
-{% block title %}Registration Successful{% endblock %}
-{% block head %}
- Registration Completed Successfully
-{% endblock %}
 {% block content %}
-    Thank you <form></form> registering.
-    </br>
-    <button type="button" onclick="window.location.href='/' ">Login</button>
+    {% if request.user.username %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
 {% endblock %}

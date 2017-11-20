@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block head %}
+    <br/>
+    <br/>
+
+    <h1>Список заявок к вам:</h1><br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Student</th>
+            <th>Project</th>
+            <th>Approve</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for application in applications %}
+            <tr>
+                <td>{{ application.student }}</td>
+                <td>{{ application.project}}</td>
+                <td>
+                    <button id='id_approve_button' type="button" value="{{ application.id }}" class="btn btn-success">Дать дабро</button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+    $("td button").click( function(){
+        application_id = $(this).val();
+        url = '{%  url 'scheduler:change_status_application' %}';
+        $.ajax({
+            'url' : url,
+            'type' : 'POST',
+            'data' : {
+                'application_id' : application_id,
+            },
+            'success' : function(data) {
+                            if (data.success) {
+                                alert('Success!');
+                            } else {
+                                alert('Feild already exists!!!');
+                            }
+                        }
+        });
+    });
+
+</script>
+{% endblock %}
+

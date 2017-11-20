@@ -1,0 +1,194 @@
+.duration-interview {
+  background-color: #8c8c8c;
+  border-radius: 50px 50px 50px 50px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.appointent-slot {
+  background-color: #62f320;
+  border-radius: 50px 50px 50px 50px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-bottom: -10px;
+}
+
+.expect-interview {
+  background-color: #f39232;
+  border-radius: 50px 50px 50px 50px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.close-event {
+  padding: 10px;
+  float: right;
+  background: black;
+  border: 1px solid transparent;
+  opacity: 0.3;
+}
+
+.close-event:hover {
+  opacity: 1;
+}
+
+.close-event__icon {
+  position: absolute;
+}
+
+.close-event__icon:hover {
+  opacity: 1;
+}
+
+.close-event__icon:before, .close-event__icon:after {
+  position: absolute;
+  content: ' ';
+  height: 15px;
+  width: 2px;
+  background-color: #8ace;
+  bottom: -8px;
+}
+
+.close-event__icon:before {
+  transform: rotate(45deg);
+}
+
+.close-event__icon:after {
+  transform: rotate(-45deg);
+}
+
+.calendar-tooltip__item-text {
+  margin-left: 15px;
+}
+
+.calendar-tooltip__item-status {
+  width: 7px;
+  height: 7px;
+  border-radius: 50px;
+  float: left;
+  margin-top: 5px;
+}
+
+.calendar-tooltip__item-status._agree {
+  background: green;
+}
+
+.calendar-tooltip__item-status._nothing {
+  background: grey;
+}
+
+.calendar-tooltip__item-status._fault {
+  background: red;
+}
+
+.calendar-tooltip {
+  width: 300px;
+}
+
+.calendar-tooltip__image {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+}
+
+.calendar-tooltip__name {
+  font-size: 140%;
+  font-weight: 900;
+}
+
+.calendar-tooltip__university {
+  opacity: 0.5
+}
+
+.calendar-tooltip__title {
+  font-size: 200%;
+  font-weight: 900;
+}
+
+.toolbar-calendar {
+  padding-bottom: 11px;
+}
+
+.toolbar-navigation {
+  position: absolute;
+  margin-left: -30px;
+}
+
+.toolbar-navigation__prev {
+  float: left;
+}
+
+.toolbar-navigation__next {
+  float: right;
+}
+
+.toolbar-navigation__link {
+  padding-bottom: 11px;
+  padding-top: 11px;
+  padding-left: 11px;
+  padding-right: 11px;
+  background: transparent;
+  border-radius: 50px;
+  border: 1px solid #c8c8c8;
+  text-decoration: none;
+}
+
+.toolbar-navigation__link-size {
+  font-size: 150%;
+}
+
+.toolbar-navigation__link:hover {
+  text-decoration: none;
+}
+
+.toolbar-navigation__text {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 160px;
+  float: right;
+  text-align: center;
+}
+
+.scheduler-project-application {
+  padding-bottom: 20px;
+}
+
+.scheduler-project-application__info {
+  background-color: #fff2c3;
+  height: 80px;
+}
+
+.scheduler-project-application__info-text {
+  padding-top: 10px;
+  padding-left: 50px;
+  font-weight: 500;
+}
+
+.scheduler-project-application__submit {
+  background-color: #fdb54f;
+  height: 80px;
+  text-align: center;
+  line-height: 5.5em;
+}
+
+.scheduler-project-application__submit-text {
+  color: white;
+  font-weight:bold;
+}
+
+.student-event-tooltip {
+  width: 250px;
+}
+
+.student-event-tooltip__text {
+  padding-left: 10px;
+  padding-top: 20px;
+}
+
+.student-event-tooltip__text-name {
+  font-size: large;
+}
+
+.student-event-tooltip__text-description {
+  color: darkgray;
+}

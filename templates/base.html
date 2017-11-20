@@ -7,18 +7,47 @@
     <title>{% block title %}{% endblock %}</title>
     {% load render_bundle from webpack_loader %}
     {% render_bundle 'css' %}
-
+    <script type="text/javascript" src="https://rawgithub.com/nwcell/ics.js/master/ics.deps.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
-<div class="wrapper">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-        <h1>{% block head %}{% endblock %}</h1>
-        {% block content %}{% endblock %}
-        <div id="react-app"></div>
-        {% render_bundle 'main' %}
+        <div class="navbar-header">
+            {% if user.first_name %}
+                <a class="navbar-brand" href="{% url 'scheduler:index' %}">{{ user.first_name }} {{ user.last_name }}</a>
+            {% else %}
+                <a class="navbar-brand" href="{% url 'scheduler:index' %}">{{ user.username }}</a>
+            {% endif %}
+        </div>
+        <div class="navbar-collapse collapse">
+            {% if user.is_authenticated %}
+                <form class="navbar-form navbar-right" >
+                    <a class="btn btn-default pull-right" href="{% url 'login:logout' %}">Log out</a>
+                </form>
+            {% else %}
+                <form class="navbar-form navbar-right" method="post" action="{% url 'login:login' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" placeholder="Username" name="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" name="password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                    <a class="btn btn-info" href="{% url 'login:register' %}">Register</a>
+                </form>
+            {% endif %}
+        </div>
     </div>
 </div>
+{% block head %}{% endblock %}
+{% block content %}{% endblock %}
+
+{#<div id="react-app"></div>#}
+{#{% render_bundle 'main' %}#}
 </body>
 </html>
 

@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,8 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'webpack_loader',
+    'crispy_forms',
+
+
     'login.apps.LoginConfig',
+    'launcher.apps.LauncherConfig',
+    'interview.apps.InterviewConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
