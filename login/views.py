@@ -20,7 +20,8 @@ def register(request):
             user = User.objects.create_user(
                 username=username,
                 password=password,
-                email=form.cleaned_data['email']
+                email=form.cleaned_data['email'],
+                is_staff=form.cleaned_data['staff']
             )
             person = authenticate(username=username, password=password)
             auth.login(request, person)
